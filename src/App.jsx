@@ -37,7 +37,7 @@ const myRouter = createBrowserRouter([
       { path: 'brands', element: <Guard><Brands /></Guard> },
       { path: 'wishlist', element: <Guard><Wishlist /></Guard> },
       { path: 'forgotPassword', element: <ForgPassword /> },
-      {path: 'allorders', element:<Guard><Home /></Guard> },
+      { path: 'allorders', element:<Guard><Home /></Guard> },
       { path: '*', element: <NotFound /> },
 
     ]
