@@ -43,6 +43,7 @@ export default function Order() {
                         navigate('/home')
                     }, 2000)
                 }).catch((err) => {
+                    setisClicked(false)
                 })
             }
             if (val.paymentMethod == 'online') {
@@ -64,10 +65,11 @@ export default function Order() {
                 ).then((resp) => {
                     setisClicked(false)
                     orderFormik.resetForm()
-                    console.log(resp);
+                    console.log(resp.data.session.url);
                     setTimeout(() => {
                         window.open(resp.data.session.url, '_self')
                     }, 2000)
+
                     deleteAllItems()
 
                 }).catch((err) => {
@@ -130,7 +132,7 @@ export default function Order() {
                     </div>
                     <div className='flex flex-col md:flex-row justify-between items-center'>
                         <div>
-                            <Field id='cashOnDelivery' type='radio' name='paymentMethod' value='cash' defaultChecked />
+                            <Field id='cashOnDelivery' type='radio' name='paymentMethod' value='cash' />
                             <label className='ms-1' htmlFor='cashOnDelivery'>Cash on Delivery</label>
                         </div>
                         <div>
